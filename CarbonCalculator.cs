@@ -17,8 +17,8 @@ public class CarbonCalculator : MonoBehaviour
     public TMP_InputField publicTransportInput;
     public TMP_InputField airTravelInput;
     public TMP_Text resultText;
-    public TMP_Text earthsText;          // New
-    public TMP_Text recommendationsText; // New
+    public TMP_Text earthsText;
+    public TMP_Text recommendationsText;
     public Button startButton;
     public Button nextButton1;
     public Button backButton2;
@@ -41,7 +41,7 @@ public class CarbonCalculator : MonoBehaviour
     private float meatCO2PerKg = 14.5f;
     private float publicTransportCO2PerKm = 0.100f;
     private float airTravelCO2PerKm = 0.200f;
-    private const float sustainableCO2ePerWeek = 0.0404f; // 2.1 tons/year / 52 weeks
+    private const float sustainableCO2ePerWeek = 0.0404f;
 
     void Start()
     {
@@ -120,11 +120,9 @@ public class CarbonCalculator : MonoBehaviour
 
         resultText.text = $"Result: {totalCO2Tons:F4} tons CO2e/week";
 
-        // Calculate Earths Needed
         float earthsNeeded = totalCO2Tons / sustainableCO2ePerWeek;
         earthsText.text = $"Earths Needed: {earthsNeeded:F2} (if everyone lived like you)";
 
-        // Generate Recommendations
         string recommendations = "Ways to Lower Your Footprint:\n";
         if (kilometers > 50) recommendations += "- Reduce car use; try walking or biking for short trips.\n";
         if (electricity > 200) recommendations += "- Switch to energy-efficient appliances or renewable energy.\n";
